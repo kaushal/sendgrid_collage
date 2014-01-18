@@ -1,8 +1,24 @@
 <html>
-    <head></head>
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+            var ct = 1;
+        </script>
+        <h1>Email your image to mhacks+test@demo.bymail.in</h1>
+        <br>
+    </head>
     <body>
-        <img src="{{ imageUrl|safe }}">
+        <img width="500px" id='mainImg' src="static/images/mhacks/0.jpg" >
         <br>
         {{imagePath}}
+        <script>
+            setInterval(function(){
+                console.log('test');
+                var d = new Date();
+                $("#mainImg").attr("src","static/images/mhacks/" + ct.toString() + ".jpg?" + d.getTime());
+                ct++;
+            }, 3000)
+
+        </script>
     </body>
 </html>
